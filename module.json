@@ -1,0 +1,33 @@
+{
+  "id": "JRPG-foundryvtt-module",
+  "title": "JRPG-foundryvtt-module for PF2e",
+  "description": "A custom UI module for Pathfinder 2e that emulates JRPG style aesthetic.",
+  "version": "1.0.0",
+  "scripts": [
+    "scripts/jrpg.js"
+  ],
+  "styles": [
+    "assets/styles/style.css"
+  ],
+  "templates": [
+    "templates/jrpg-character-sheet.html"
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "version": "12.x"
+      }
+    ]
+  },
+  "compatibility": {
+    "foundry": {
+      "version": "12.x"
+    },
+    "system": {
+      "id": "pf2e",
+      "version": "12.x"
+    }
+  }
+}
