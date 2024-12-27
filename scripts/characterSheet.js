@@ -8,7 +8,7 @@ export class CharacterSheet extends FormApplication {
     return mergeObject(super.defaultOptions(), {
       id: "JRPG-character-sheet",
       title: this.actor.name,
-      template: "modules/JRPG-foundryvtt-module/templates/characterSheet.html",
+      template: "templates/characterSheet.html",
       width: 400,
       height: "auto",
     });

@@ -1,33 +1,35 @@
 {
-  "id": "JRPG-foundryvtt-module",
-  "title": "JRPG-foundryvtt-module for PF2e",
-  "description": "A custom UI module for Pathfinder 2e that emulates JRPG style aesthetic.",
-  "version": "1.0.0",
-  "scripts": [
-    "scripts/jrpg.js"
+  "id": "niqu3d.jrpg-ui",
+  "name": "JRPG UI Module by Niqu3d",
+  "title": "JRPG UI Module by Niqu3d",
+  "version": "0.1.1",
+  "description": "A custom JRPG-style UI for FoundryVTT (PF2e) with character sheets inspired by Legend of Dragoon.",
+  "author": "Niqu3d",
+  "authors": [
+    {
+      "name": "Niqu3d",
+      "url": "https://github.com/Niqu3d"
+    }
+  ],
+  "dependencies": [
+    "pf2e"
+  ],
+  "esmodules": [
+    "scripts/index.js",
+    "scripts/turnOrder.js",
+    "scripts/actionHandler.js",
+    "scripts/characterSheet.js"
   ],
   "styles": [
-    "assets/styles/style.css"
+    "styles/style.css"
   ],
   "templates": [
-    "templates/jrpg-character-sheet.html"
+    "templates/app.html",
+    "templates/characterSheet.html"
   ],
-  "relationships": {
-    "requires": [
-      {
-        "id": "pf2e",
-        "type": "system",
-        "version": "12.x"
-      }
-    ]
-  },
+  "packs":,
   "compatibility": {
-    "foundry": {
-      "version": "12.x"
-    },
-    "system": {
-      "id": "pf2e",
-      "version": "12.x"
-    }
+    "minimum": "12",
+    "verified": "12"
   }
 }

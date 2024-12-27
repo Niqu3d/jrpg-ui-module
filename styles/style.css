@@ -2,10 +2,4 @@
 body {
   font-family: 'MedievalSharp', sans-serif; /* Replace with a medieval-style font */
   background-color: #181818; /* Dark background */
-  color: #fff; /* White text */
-}
-
-/* Character Container */
-#character-container {
-  display: flex;
-  justify-content
+  color: #fff; /* White

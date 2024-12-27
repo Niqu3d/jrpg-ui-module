@@ -1,0 +1,29 @@
+<div class="character-sheet">
+  <h2>{{ character.name }}</h2>
+  <img src="{{ character.portrait }}" alt="{{ character.name }}" class="character-portrait">
+
+  <div class="stats">
+    <div>
+      <span>HP:</span> {{ character.hp }} / {{ character.maxHp }}
+    </div>
+    <div>
+      <span>Strength:</span> {{ character.data.data.abilities.str.value }} ({{ character.data.data.abilities.str.mod }})
+    </div>
+    <div>
+      <span>Dexterity:</span> {{ character.data.data.abilities.dex.value }} ({{ character.data.data.abilities.dex.mod }})
+    </div>
+    <div>
+      <span>Constitution:</span> {{ character.data.data.abilities.con.value }} ({{ character.data.data.abilities.con.mod }})
+    </div>
+    <div>
+      <span>Intelligence:</span> {{ character.data.data.abilities.int.value }} ({{ character.data.data.abilities.int.mod }})
+    </div>
+    <div>
+      <span>Wisdom:</span> {{ character.data.data.abilities.wis.value }} ({{ character.data.data.abilities.wis.mod }})
+    </div>
+    <div>
+      <span>Charisma:</span> {{ character.data.data.abilities.cha.value }} ({{ character.data.data.abilities.cha.mod }})
+    </div>
+  </div>
+
+</div>
