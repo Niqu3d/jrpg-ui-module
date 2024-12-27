@@ -27,7 +27,6 @@
     "templates/app.html",
     "templates/characterSheet.html"
   ],
-  "packs":,
   "compatibility": {
     "minimum": "12",
     "verified": "12"
