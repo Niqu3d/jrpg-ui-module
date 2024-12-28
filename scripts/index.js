@@ -1,4 +1,3 @@
-import { TurnOrder } from './turnOrder.js';
 import { ActionHandler } from './actionHandler.js';
 import { CharacterSheet } from './characterSheet.js'; // Import CharacterSheet class
 
@@ -9,7 +8,7 @@ Hooks.on("ready", () => {
 class JRPGUI extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions(), {
-      id: "JRPG-foundryvtt-module",
+      id: "jrpg-ui", // Use the same ID as in module.json
       title: "JRPG UI Module by Niqu3d",
       template: "templates/app.html",
       width: 800,

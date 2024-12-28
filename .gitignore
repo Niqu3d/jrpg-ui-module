@@ -1,0 +1,9 @@
+jrpg-ui-module.zip
+.DS_Store
+node_modules/
+dist/ 
+build/ 
+# Foundry VTT Data Directory 
+Data/ 
+# Local Storage 
+localstorage/
