@@ -1,5 +1,3 @@
-import { ActorPF2e } from "../systems/pf2e/module/actor/actor.js";
-
 export class TurnOrder {
   static getTurnOrder() {
     const actors = game.actors.contents;
