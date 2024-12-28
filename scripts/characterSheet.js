@@ -7,7 +7,11 @@ export class CharacterSheet extends FormApplication {
     return mergeObject(super.defaultOptions(), {
       id: "jrpg-ui-character-sheet",
       title: "Character Sheet",
+<<<<<<< HEAD
       template: "templates/character-Sheet.html",
+=======
+      template: "templates/characterSheet.html",
+>>>>>>> ae0e9fcedede280737f3af67775533cb4246a0a2
       width: 400,
       height: "auto",
       resizable: true,
