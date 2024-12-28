@@ -1,6 +1,4 @@
-import { TurnOrder } from './turnOrder.js';
-import { ActionHandler } from './actionHandler.js';
-import { CharacterSheet } from './characterSheet.js'; // Import CharacterSheet class
+import { CharacterSheet } from './characterSheet.js';
 
 Hooks.on("ready", () => {
   new JRPGUI().render(true);
@@ -19,39 +17,21 @@ class JRPGUI extends FormApplication {
 
   getData() {
     const actors = game.actors.contents;
-    const sortedActors = TurnOrder.getTurnOrder(actors); // Pass actors to getTurnOrder
 
     return {
-      characters: sortedActors.map(actor => ({
+      characters: actors.map(actor => ({
         name: actor.name,
         portrait: actor.data.img,
         hp: actor.data.data.attributes.hp.value,
         maxHp: actor.data.data.attributes.hp.max,
         _id: actor._id,
         healthPercentage: actor.data.data.attributes.hp.value / actor.data.data.attributes.hp.max * 100
-      })),
-      turnOrder: sortedActors.map(actor => actor.name)
+      }))
     };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
-
-    html.find("#action-buttons button:first-child").click(() => {
-      ActionHandler.startTurn();
-    });
-
-    html.find("#action-buttons button:last-child").click(() => {
-      ActionHandler.endTurn();
-    });
-
-    html.find("#action-buttons button:nth-child(3)").click(() => {
-      ActionHandler.ready();
-    });
-
-    html.find("#action-buttons button:nth-child(4)").click(() => {
-      ActionHandler.delay();
-    });
 
     // Handle character sheet clicks
     html.find('.character').click(event => {

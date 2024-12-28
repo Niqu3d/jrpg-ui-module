@@ -1,29 +1,68 @@
 <div class="character-sheet">
-  <h2>{{ character.name }}</h2>
-  <img src="{{ character.portrait }}" alt="{{ character.name }}" class="character-portrait">
+  <h2>{{ actor.name }}</h2>
+  <img src="{{ actor.img }}" alt="{{ actor.name }}" class="character-portrait">
 
   <div class="stats">
-    <div>
-      <span>HP:</span> {{ character.hp }} / {{ character.maxHp }}
-    </div>
-    <div>
-      <span>Strength:</span> {{ character.data.data.abilities.str.value }} ({{ character.data.data.abilities.str.mod }})
-    </div>
-    <div>
-      <span>Dexterity:</span> {{ character.data.data.abilities.dex.value }} ({{ character.data.data.abilities.dex.mod }})
-    </div>
-    <div>
-      <span>Constitution:</span> {{ character.data.data.abilities.con.value }} ({{ character.data.data.abilities.con.mod }})
-    </div>
-    <div>
-      <span>Intelligence:</span> {{ character.data.data.abilities.int.value }} ({{ character.data.data.abilities.int.mod }})
-    </div>
-    <div>
-      <span>Wisdom:</span> {{ character.data.data.abilities.wis.value }} ({{ character.data.data.abilities.wis.mod }})
-    </div>
-    <div>
-      <span>Charisma:</span> {{ character.data.data.abilities.cha.value }} ({{ character.data.data.abilities.cha.mod }})
-    </div>
+    <h3>Attributes</h3>
+    <ul>
+      <li>
+        <span>Strength:</span> {{ data.data.abilities.str.value }} ({{ data.data.abilities.str.mod }})
+      </li>
+      <li>
+        <span>Dexterity:</span> {{ data.data.abilities.dex.value }} ({{ data.data.abilities.dex.mod }})
+      </li>
+      <li>
+        <span>Constitution:</span> {{ data.data.abilities.con.value }} ({{ data.data.abilities.con.mod }})
+      </li>
+      <li>
+        <span>Intelligence:</span> {{ data.data.abilities.int.value }} ({{ data.data.abilities.int.mod }})
+      </li>
+      <li>
+        <span>Wisdom:</span> {{ data.data.abilities.wis.value }} ({{ data.data.abilities.wis.mod }})
+      </li>
+      <li>
+        <span>Charisma:</span> {{ data.data.abilities.cha.value }} ({{ data.data.abilities.cha.mod }})
+      </li>
+    </ul>
   </div>
 
+<div class="health">
+  <h3>Health</h3>
+  <input type="number" name="data.data.attributes.hp.value" value="{{ actor.data.data.attributes.hp.value }}">
+  <span>/</span> {{ actor.data.data.attributes.hp.max }}
 </div>
+
+</div>
+
+<style>
+  .character-sheet {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .character-portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .stats ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .health-bar {
+    width: 150px;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+
+  .health-fill {
+    height: 100%;
+    background-color: #00ff00;
+  }
+</style>

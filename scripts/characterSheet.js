@@ -25,7 +25,12 @@ export class CharacterSheet extends FormApplication {
 
   activateListeners(html) {
     super.activateListeners(html);
-    // Add any event listeners for your character sheet here
+
+    // Example: Handle changes to HP value (requires a form input in the template)
+    html.find('input[name="data.data.attributes.hp.value"]').on('change', (event) => {
+      const newHp = parseInt(event.target.value);
+      this.actor.update({ "data.data.attributes.hp.value": Math.clamped(newHp, 0, this.actor.data.data.attributes.hp.max) });
+    });
   }
 
   async _updateObject(event, formData) {
