@@ -1,3 +1,4 @@
+import { TurnOrder } from './turnOrder.js';
 import { ActionHandler } from './actionHandler.js';
 import { CharacterSheet } from './characterSheet.js'; // Import CharacterSheet class
 
@@ -18,12 +19,7 @@ class JRPGUI extends FormApplication {
 
   getData() {
     const actors = game.actors.contents;
-    const sortedActors = actors.sort((a, b) => {
-      // Get initiative from PF2e actor data
-      const aInit = a.getRollData().initiative.value;
-      const bInit = b.getRollData().initiative.value;
-      return bInit - aInit;
-    });
+    const sortedActors = TurnOrder.getTurnOrder();
 
     return {
       characters: sortedActors.map(actor => ({
@@ -31,9 +27,10 @@ class JRPGUI extends FormApplication {
         portrait: actor.data.img,
         hp: actor.data.data.attributes.hp.value,
         maxHp: actor.data.data.attributes.hp.max,
-        _id: actor._id // Add actor ID for character sheet click handling
+        _id: actor._id,
+        healthPercentage: actor.data.data.attributes.hp.value / actor.data.data.attributes.hp.max * 100
       })),
-      turnOrder: sortedActors
+      turnOrder: sortedActors.map(actor => actor.name)
     };
   }
 

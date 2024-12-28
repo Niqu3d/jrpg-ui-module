@@ -1,13 +1,26 @@
 <form>
-  <div id="character-container">
-    <div class="character" data-actor-id="{{ actor._id }}">
-      <img src="{{ actor.img }}" alt="{{ actor.name }}" class="portrait">
-      <div class="health-bar">
-        <div class="health-fill"></div>
-      </div>
-    </div>
+  <h2>Characters</h2>
+  <ul id="character-list">
+    {{#each characters}}
+      <li class="character-item">
+        <img src="{{this.portrait}}" alt="{{this.name}}" class="character-portrait">
+        <span class="character-name">{{this.name}}</span>
+        <div class="health-bar">
+          <div class="health-fill" style="width: {{this.healthPercentage}}%;"></div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+
+  <div id="turn-order-display">
+    <h3>Turn Order:</h3>
+    <ul>
+      {{#each turnOrder}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
   </div>
-  <div id="turn-order-display"></div>
+
   <div id="action-buttons">
     <button type="button">Start Turn</button>
     <button type="button">End Turn</button>
@@ -15,3 +28,31 @@
     <button type="button">Delay</button>
   </div>
 </form>
+
+<style>
+  .character-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .character-portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .health-bar {
+    width: 100px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+  }
+
+  .health-fill {
+    height: 100%;
+    background-color: #00ff00; /* Green for health */
+    border-radius: 5px;
+  }
+</style>

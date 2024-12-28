@@ -1,17 +1,21 @@
 export class ActionHandler {
   static startTurn() {
-    // ... (Handle actions for the start of a turn)
+    // TODO: Implement logic for starting the turn
+    console.log("Start Turn");
   }
 
   static endTurn() {
-    // ... (Handle actions for the end of a turn)
+    // TODO: Implement logic for ending the turn
+    console.log("End Turn");
   }
 
   static ready() {
-    // ... (Handle the "Ready" action)
+    // TODO: Implement logic for the "Ready" action
+    console.log("Ready");
   }
 
   static delay() {
-    // ... (Handle the "Delay" action)
+    // TODO: Implement logic for the "Delay" action
+    console.log("Delay");
   }
 }

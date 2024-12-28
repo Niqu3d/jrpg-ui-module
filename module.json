@@ -23,8 +23,18 @@
       }
     ]
   },
+  "esmodules": [
+    "scripts/index.js",
+    "scripts/turnOrder.js",
+    "scripts/actionHandler.js",
+    "scripts/characterSheet.js"
+  ],
   "styles": [
     "styles/style.css"
+  ],
+  "templates": [
+    "templates/app.html",
+    "templates/characterSheet.html"
   ],
   "compatibility": {
     "minimum": "12",
