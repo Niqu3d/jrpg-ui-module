@@ -5,3 +5,5 @@ This repository contains the source code for a FoundryVTT module I'm developing 
 **Disclaimer:**
 
 This module is under development and may not be stable or fully functional. It is not intended for public use or distribution. 
+
+All images are placeholders
