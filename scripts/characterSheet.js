@@ -6,7 +6,7 @@ export class CharacterSheet extends FormApplication {
 
   static get defaultOptions() {
     return mergeObject(super.defaultOptions(), {
-      id: "JRPG-character-sheet",
+      id: "jrpg-ui-character-sheet", // Use a unique ID for the character sheet
       title: this.actor.name,
       template: "templates/characterSheet.html",
       width: 400,
