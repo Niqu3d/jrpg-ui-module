@@ -1,68 +1,34 @@
 <div class="character-sheet">
-  <h2>{{ actor.name }}</h2>
-  <img src="{{ actor.img }}" alt="{{ actor.name }}" class="character-portrait">
+    <h2>{{ actor.name }}</h2>
+    <img src="{{ actor.data.img }}" alt="{{ actor.name }}" class="character-portrait">
 
-  <div class="stats">
-    <h3>Attributes</h3>
-    <ul>
-      <li>
-        <span>Strength:</span> {{ data.data.abilities.str.value }} ({{ data.data.abilities.str.mod }})
-      </li>
-      <li>
-        <span>Dexterity:</span> {{ data.data.abilities.dex.value }} ({{ data.data.abilities.dex.mod }})
-      </li>
-      <li>
-        <span>Constitution:</span> {{ data.data.abilities.con.value }} ({{ data.data.abilities.con.mod }})
-      </li>
-      <li>
-        <span>Intelligence:</span> {{ data.data.abilities.int.value }} ({{ data.data.abilities.int.mod }})
-      </li>
-      <li>
-        <span>Wisdom:</span> {{ data.data.abilities.wis.value }} ({{ data.data.abilities.wis.mod }})
-      </li>
-      <li>
-        <span>Charisma:</span> {{ data.data.abilities.cha.value }} ({{ data.data.abilities.cha.mod }})
-      </li>
-    </ul>
-  </div>
+    <div class="stats">
+        <h3>Attributes</h3>
+        <ul>
+            <li>
+                <span>Strength:</span> {{ data.system.abilities.str.value }} ({{ data.system.abilities.str.mod }})
+            </li>
+            <li>
+                <span>Dexterity:</span> {{ data.system.abilities.dex.value }} ({{ data.system.abilities.dex.mod }})
+            </li>
+            <li>
+                <span>Constitution:</span> {{ data.system.abilities.con.value }} ({{ data.system.abilities.con.mod }})
+            </li>
+            <li>
+                <span>Intelligence:</span> {{ data.system.abilities.int.value }} ({{ data.system.abilities.int.mod }})
+            </li>
+            <li>
+                <span>Wisdom:</span> {{ data.system.abilities.wis.value }} ({{ data.system.abilities.wis.mod }})
+            </li>
+            <li>
+                <span>Charisma:</span> {{ data.system.abilities.cha.value }} ({{ data.system.abilities.cha.mod }})
+            </li>
+        </ul>
+    </div>
 
-<div class="health">
-  <h3>Health</h3>
-  <input type="number" name="data.data.attributes.hp.value" value="{{ actor.data.data.attributes.hp.value }}">
-  <span>/</span> {{ actor.data.data.attributes.hp.max }}
+    <div class="health">
+        <h3>Health</h3>
+        <span>{{ actor.system.attributes.hp.value }} / {{ actor.system.attributes.hp.max }}</span>
+    </div>
+
 </div>
-
-</div>
-
-<style>
-  .character-sheet {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  .character-portrait {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-
-  .stats ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .health-bar {
-    width: 150px;
-    height: 15px;
-    background-color: #ccc;
-    border-radius: 5px;
-    margin-bottom: 5px;
-  }
-
-  .health-fill {
-    height: 100%;
-    background-color: #00ff00;
-  }
-</style>
