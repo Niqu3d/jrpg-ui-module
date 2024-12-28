@@ -15,17 +15,13 @@
     "pf2e"
   ],
   "esmodules": [
-    "scripts/index.js",
-    "scripts/turnOrder.js",
-    "scripts/actionHandler.js",
-    "scripts/characterSheet.js"
+    "scripts/index.js"
   ],
   "styles": [
     "styles/style.css"
   ],
   "templates": [
-    "templates/app.html",
-    "templates/characterSheet.html"
+    "templates/app.html"
   ],
   "compatibility": {
     "minimum": "12",
