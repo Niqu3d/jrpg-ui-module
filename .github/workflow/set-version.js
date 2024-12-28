@@ -1,7 +1,6 @@
 // .github/workflows/set-version.js
 
 const core = require('@actions/core');
-const { execSync } = require('child_process');
 
 try {
   const ref = process.env.GITHUB_REF;
@@ -11,8 +10,11 @@ try {
     const version = ref.substring(10);
     core.setOutput('version', version);
   } else {
-    // Default to '0.1.0' for non-tag pushes
-    core.setOutput('version', '0.1.0');
+    // Extract major and minor version from branch name (e.g., main -> 1.0.0)
+    const branchName = ref.replace('refs/heads/', '');
+    const [major, minor] = branchName.split('.');
+    const version = `${major}.${minor}.0`;
+    core.setOutput('version', version);
   }
 } catch (error) {
   core.setFailed(error.message);
