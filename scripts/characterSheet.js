@@ -1,28 +1,36 @@
 export class CharacterSheet extends FormApplication {
   constructor(actor) {
-    super();
-    this.actor = actor;
+    super({ actor: actor });
   }
 
   static get defaultOptions() {
     return mergeObject(super.defaultOptions(), {
-      id: "jrpg-ui-character-sheet", // Use a unique ID for the character sheet
-      title: this.actor.name,
+      id: "jrpg-ui-character-sheet",
+      title: "Character Sheet",
       template: "templates/characterSheet.html",
       width: 400,
       height: "auto",
+      resizable: true,
+      closeOnSubmit: false
     });
   }
 
   getData() {
+    const data = this.actor.data.toObject();
     return {
-      character: {
-        name: this.actor.name,
-        portrait: this.actor.data.img,
-        hp: this.actor.data.data.attributes.hp.value,
-        maxHp: this.actor.data.data.attributes.hp.max,
-        data: this.actor.data.data
-      }
+      actor: data,
+      data: data.data
     };
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+    // Add any event listeners for your character sheet here
+  }
+
+  async _updateObject(event, formData) {
+    event.preventDefault();
+    await this.actor.update(formData);
+    this.render();
   }
 }
