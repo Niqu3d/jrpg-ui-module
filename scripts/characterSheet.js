@@ -1,36 +1,46 @@
-export class CharacterSheet extends FormApplication {
-  constructor(actor) {
-    super({ actor: actor });
-  }
+import { TurnOrder } from './turnOrder.js';
+import { CharacterSheet } from './characterSheet.js'; // Import CharacterSheet class
 
+Hooks.on("ready", () => {
+  new JRPGUI().render(true);
+});
+
+class JRPGUI extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions(), {
-      id: "jrpg-ui-character-sheet",
-      title: "Character Sheet",
-      template: "templates/characterSheet.html",
-      width: 400,
+      id: "jrpg-ui", // Use the same ID as in module.json
+      title: "JRPG UI Module by Niqu3d",
+      template: "templates/app.html",
+      width: 800,
       height: "auto",
-      resizable: true,
-      closeOnSubmit: false
     });
   }
 
   getData() {
-    const data = this.actor.data.toObject();
+    const actors = game.actors.contents;
+    const sortedActors = TurnOrder.getTurnOrder(actors);
+
     return {
-      actor: data,
-      data: data.data
+      characters: sortedActors.map(actor => ({
+        name: actor.name,
+        portrait: actor.data.img,
+        hp: actor.data.data.attributes.hp.value,
+        maxHp: actor.data.data.attributes.hp.max,
+        _id: actor._id,
+        healthPercentage: actor.data.data.attributes.hp.value / actor.data.data.attributes.hp.max * 100
+      })),
+      turnOrder: sortedActors.map(actor => actor.name)
     };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
-    // Add any event listeners for your character sheet here
-  }
 
-  async _updateObject(event, formData) {
-    event.preventDefault();
-    await this.actor.update(formData);
-    this.render();
+    // Handle character sheet clicks
+    html.find('.character').click(event => {
+      const actorId = $(event.currentTarget).data('actor-id');
+      const actor = game.actors.get(actorId);
+      new CharacterSheet(actor).render(true);
+    });
   }
 }
