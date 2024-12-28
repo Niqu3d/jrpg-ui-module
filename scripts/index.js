@@ -19,7 +19,7 @@ class JRPGUI extends FormApplication {
 
   getData() {
     const actors = game.actors.contents;
-    const sortedActors = TurnOrder.getTurnOrder();
+    const sortedActors = TurnOrder.getTurnOrder(actors); // Pass actors to getTurnOrder
 
     return {
       characters: sortedActors.map(actor => ({
