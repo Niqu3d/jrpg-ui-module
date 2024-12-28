@@ -1,0 +1,46 @@
+name: JRPG-UI-Module CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update Version
+        shell: bash
+        id: set-version
+        run: echo "::set-output name=version::$(node ./.github/workflows/set-version.js ${{ github.ref }})"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Module
+        run: |
+          mkdir -p dist
+          cp -r ./* dist/
+
+      - name: Create Release
+        id: create_versioned_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.set-version.outputs.version }}
+          release_name: "Release ${{ steps.set-version.outputs.version }}"
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_versioned_release.outputs.upload_url }}
+          asset_path: './dist/jrpg-ui-module.zip'
+          asset_name: 'jrpg-ui-module.zip'
+          asset_content_type: 'application/zip'
