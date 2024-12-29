@@ -1,4 +1,3 @@
-// scripts/characterSheet.js
 export class CharacterSheet extends FormApplication {
     constructor(actor) {
         super({ actor: actor });
@@ -17,10 +16,9 @@ export class CharacterSheet extends FormApplication {
     }
 
     getData() {
-        const data = this.actor.toObject();
         return {
-            actor: data,
-            data: data.system
+            actor: this.actor,
+            system: this.actor.system
         };
     }
 
@@ -28,7 +26,7 @@ export class CharacterSheet extends FormApplication {
         super.activateListeners(html);
 
         // Example: Handle changes to HP value (requires a form input in the template)
-        html.find('input[name="data.system.attributes.hp.value"]').on('change', (event) => {
+        html.find('input[name="system.attributes.hp.value"]').on('change', (event) => {
             const newHp = parseInt(event.target.value);
             this.actor.update({ "system.attributes.hp.value": Math.clamped(newHp, 0, this.actor.system.attributes.hp.max) });
         });

@@ -1,34 +1,30 @@
 <div class="character-sheet">
     <h2>{{ actor.name }}</h2>
-    <img src="{{ actor.data.img }}" alt="{{ actor.name }}" class="character-portrait">
+    <img src="{{ actor.img }}" alt="{{ actor.name }}" class="character-portrait">
 
     <div class="stats">
         <h3>Attributes</h3>
         <ul>
             <li>
-                <span>Strength:</span> {{ data.system.abilities.str.value }} ({{ data.system.abilities.str.mod }})
+                <span>Strength:</span> {{ system.abilities.str.value }} ({{ system.abilities.str.mod }})
             </li>
             <li>
-                <span>Dexterity:</span> {{ data.system.abilities.dex.value }} ({{ data.system.abilities.dex.mod }})
+                <span>Dexterity:</span> {{ system.abilities.dex.value }} ({{ system.abilities.dex.mod }})
             </li>
             <li>
-                <span>Constitution:</span> {{ data.system.abilities.con.value }} ({{ data.system.abilities.con.mod }})
+                <span>Constitution:</span> {{ system.abilities.con.value }} ({{ system.abilities.con.mod }})
             </li>
             <li>
-                <span>Intelligence:</span> {{ data.system.abilities.int.value }} ({{ data.system.abilities.int.mod }})
+                <span>Intelligence:</span> {{ system.abilities.int.value }} ({{ system.abilities.int.mod }})
             </li>
             <li>
-                <span>Wisdom:</span> {{ data.system.abilities.wis.value }} ({{ data.system.abilities.wis.mod }})
+                <span>Wisdom:</span> {{ system.abilities.wis.value }} ({{ system.abilities.wis.mod }})
             </li>
             <li>
-                <span>Charisma:</span> {{ data.system.abilities.cha.value }} ({{ data.system.abilities.cha.mod }})
+                <span>Charisma:</span> {{ system.abilities.cha.value }} ({{ system.abilities.cha.mod }})
             </li>
         </ul>
     </div>
 
-    <div class="health">
-        <h3>Health</h3>
-        <span>{{ actor.system.attributes.hp.value }} / {{ actor.system.attributes.hp.max }}</span>
-    </div>
 
 </div>

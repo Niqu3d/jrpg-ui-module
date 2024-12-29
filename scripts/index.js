@@ -1,5 +1,6 @@
 // scripts/index.js
 import { CharacterSheet } from './characterSheet.js';
+import ExtendedActor from './actor.js';
 
 Hooks.on("ready", () => {
     new JRPGUI().render(true);
@@ -43,3 +44,10 @@ class JRPGUI extends FormApplication {
         });
     }
 }
+
+// Register the ExtendedActor class
+Hooks.on('createActor', (actor) => {
+    if (actor.system) {
+        Object.assign(actor, new ExtendedActor(actor.data));
+    }
+});
