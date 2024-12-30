@@ -52,7 +52,6 @@
     background-color: #00ff00;
 }
 
-
 .lod-ui {
     background-color: #222222;
     /* Dark background like in LoD */
@@ -60,4 +59,17 @@
     /* White text */
     border: 2px solid #666666;
     /* Darker border */
+}
+
+.health-bar {
+    width: 150px;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.health-fill {
+    height: 100%;
+    background-color: #00ff00;
 }

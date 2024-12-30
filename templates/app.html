@@ -1,6 +1,8 @@
-<!--
-<form>
-    <h2>Characters</h2>
+<form class="lod-ui">
+    <h2>Welcome to the Legend of Dragoon UI</h2>
+    <p>This module provides a custom user interface for your Foundry VTT games.</p>
+
+    <h3>Your Characters</h3>
     <ul id="character-list">
         {{#each characters}}
         <li class="character-item" data-actor-id="{{this._id}}">
@@ -9,10 +11,6 @@
         </li>
         {{/each}}
     </ul>
-</form>
--->
 
-
-<form class="lod-ui">
-    <h2>Welcome to the Legend of Dragoon UI!</h2>
+    <button class="button" id="open-settings-button">Open Settings</button>
 </form>

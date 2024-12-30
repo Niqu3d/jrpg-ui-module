@@ -1,8 +1,4 @@
-export class CharacterSheet extends FormApplication {
-    constructor(actor) {
-        super({ actor: actor });
-    }
-
+export default class CharacterSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             id: "jrpg-ui-character-sheet",
@@ -16,10 +12,16 @@ export class CharacterSheet extends FormApplication {
     }
 
     getData() {
-        return {
+        const data = {
             actor: this.actor,
-            system: this.actor.system
+            system: this.actor.system,
         };
+
+        // Add any custom data you need here
+        // For example:
+        // data.isSpecialClass = this.actor.data.class === 'SpecialClass';
+
+        return data;
     }
 
     activateListeners(html) {
@@ -30,6 +32,8 @@ export class CharacterSheet extends FormApplication {
             const newHp = parseInt(event.target.value);
             this.actor.update({ "system.attributes.hp.value": Math.clamped(newHp, 0, this.actor.system.attributes.hp.max) });
         });
+
+        // Add more event listeners for other UI elements as needed
     }
 
     async _updateObject(event, formData) {

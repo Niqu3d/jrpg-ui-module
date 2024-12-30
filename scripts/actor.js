@@ -2,13 +2,13 @@ export default class ExtendedActor extends Actor {
     prepareData() {
         super.prepareData();
 
-        // Calculate derived statistics for PF2e
+        // Example: Calculate derived statistics for PF2e
         if (!this.system.derived) {
             this.system.derived = {};
         }
 
         // Armor Class (AC)
-        this.system.derived.ac = 10 + this.system.attributes.dex.mod;
+        this.system.derived.ac = 10 + this.system.abilities.dex.mod;
         if (this.system.armor.type) {
             this.system.derived.ac += this.system.armor.armor.value;
         }
@@ -46,3 +46,9 @@ export default class ExtendedActor extends Actor {
             + this.system.saves.will.proficiency;
     }
 }
+
+Hooks.on('createActor', (actor) => {
+    if (actor.system) {
+        Object.assign(actor, new ExtendedActor(actor.data));
+    }
+});
