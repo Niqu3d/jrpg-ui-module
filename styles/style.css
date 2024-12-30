@@ -1,75 +1,93 @@
-.character-item {
+/* General Styles */
+.lod-ui {
+    background-color: #332211;
+    /* Darker Brown */
+    color: #F0E68C;
+    /* Off-White */
+    border: 2px solid #553300;
+    /* Darker Brown Border */
+    padding: 10px;
+}
+
+/* Character List Styles */
+.lod-ui .character-item {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
 
-.character-portrait {
+.lod-ui .character-portrait {
     width: 50px;
     height: 50px;
     border-radius: 5px;
     margin-right: 10px;
 }
 
-
-.character-sheet-button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #eee;
-    cursor: pointer;
-}
-
-.character-sheet {
-    padding: 20px;
-    border: 1px solid #ccc;
+/* Character Sheet Styles */
+.lod-ui .character-sheet {
+    background-color: #442200;
+    /* Slightly Lighter Brown */
+    padding: 15px;
     border-radius: 5px;
 }
 
-.character-sheet .character-portrait {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
+.lod-ui .character-sheet h2 {
+    color: var(--lodr-ui-text-primary);
     margin-bottom: 10px;
 }
 
-.character-sheet .stats ul {
+.lod-ui .character-sheet .stats {
+    margin-bottom: 15px;
+}
+
+.lod-ui .character-sheet .stats li {
     list-style: none;
-    padding: 0;
-}
-
-.character-sheet .health-bar {
-    width: 150px;
-    height: 15px;
-    background-color: #ccc;
-    border-radius: 5px;
     margin-bottom: 5px;
 }
 
-.character-sheet .health-fill {
-    height: 100%;
-    background-color: #00ff00;
+.lod-ui .character-sheet .health {
+    margin-bottom: 10px;
 }
 
-.lod-ui {
-    background-color: #222222;
-    /* Dark background like in LoD */
-    color: #FFFFFF;
-    /* White text */
-    border: 2px solid #666666;
-    /* Darker border */
+.lod-ui .character-sheet .health span {
+    color: var(--lodr-ui-text-secondary);
 }
 
-.health-bar {
+/* Example: Button Styles */
+.lod-ui button {
+    background-color: #C86400;
+    /* Orange-Brown */
+    border: none;
+    color: var(--lodr-ui-text-primary);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.lod-ui button:hover {
+    background-color: darken(#C86400, 10%);
+}
+
+.lod-ui button:active {
+    background-color: darken(#C86400, 15%);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Health Bar (if applicable) */
+.lod-ui .health-bar {
+    background-color: #111111;
+    /* Dark Gray */
+    border-radius: 5px;
     width: 150px;
     height: 15px;
-    background-color: #ccc;
-    border-radius: 5px;
-    margin-bottom: 5px;
 }
 
-.health-fill {
-    height: 100%;
+.lod-ui .health-fill {
     background-color: #00ff00;
+    /* Green */
 }
