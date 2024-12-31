@@ -1,19 +1,27 @@
 /* General Styles */
 .lod-ui {
-    color: #332211;
+    padding: 15px;
     border: 2px solid #532e13;
-    padding: 1.5em;
-    border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    background-color: #b27f50;
+    /* Dark brown border */
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background-color: #e6c5a2;
+    /* Light beige background */
     font-family: "Impact", "Arial Black", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+
 }
 
 /* Title Styles */
 .lod-ui-title {
-    font-size: 2.2em;
+    font-size: 2.0em;
     font-weight: bold;
     color: #f0a500;
+    /* Gold color for title */
+    margin-bottom: 10px;
     text-shadow: 1px 1px 2px #000, 0 0 25px #f0a500, 0 0 5px #f0a500;
 }
 
@@ -21,18 +29,19 @@
 .lod-ui .character-list {
     list-style: none;
     padding: 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .lod-ui .character-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5em;
-    padding: 0.8em 1.5em;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    transform: skewX(-3deg);
-    border: 1px solid #67391f;
+    margin-bottom: 15px;
+    /* Increased margin for better spacing */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #67391f;
     background-color: #d3ad6f;
     transition: all 0.3s ease;
 }
@@ -40,22 +49,24 @@
 .lod-ui .character-item:hover {
     background-color: #e6c5a2;
     cursor: pointer;
-    transform: skewX(-3deg) scale(1.05);
 }
 
 .lod-ui .character-portrait {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
     margin-right: 15px;
+    border: 2px solid #67391f;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    width: 80px;
+    height: 80px;
 }
 
 .lod-ui .character-name {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #3c3c3c;
     font-family: "Cinzel", serif;
     font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
 .lod-ui .character-info {
@@ -64,24 +75,35 @@
     justify-content: center;
 }
 
+.lod-ui .stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.lod-ui .stat-label {
+    font-size: 0.9em;
+    color: #3c3c3c;
+    margin-right: 5px;
+}
+
+.lod-ui .stat-value {
+    font-size: 0.9em;
+    color: #3c3c3c;
+}
+
 .lod-ui .hp {
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     color: #ff6347;
-    /* Darker Red for HP text */
-    margin-bottom: 10px;
-    /* Add space below HP text */
+    /* Red for HP */
+    margin-right: 5px;
 }
 
 .lod-ui .ac {
     font-size: 0.9em;
     color: #3498db;
-    /* Blue color for AC */
-}
-
-.lod-ui .abilities span {
-    font-size: 0.9em;
-    color: #3c3c3c;
+    /* Blue for AC */
 }
 
 /* Responsiveness */
@@ -92,11 +114,12 @@
     }
 
     .lod-ui .character-item img {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .lod-ui .character-name {
         font-size: 1.4em;
+        margin-bottom: 5px;
     }
 
     .lod-ui .character-info {
