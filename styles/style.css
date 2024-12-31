@@ -4,15 +4,16 @@
     border: 2px solid #532e13;
     /* Dark brown border */
     border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    background-color: #e6c5a2;
-    /* Light beige background */
-    font-family: "Impact", "Arial Black", Arial, sans-serif;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Bevel effect */
+    background-image: url('/modules/jrpg-ui-module/images/background.png');
+    background-size: cover;
+    background-position: center;
+    font-family: "Impact", "Arial Black", sans-serif;
     display: flex;
     flex-direction: column;
     height: fit-content;
     width: fit-content;
-
 }
 
 /* Title Styles */
@@ -20,48 +21,49 @@
     font-size: 2.0em;
     font-weight: bold;
     color: #f0a500;
-    /* Gold color for title */
-    margin-bottom: 10px;
+    /* Gold */
     text-shadow: 1px 1px 2px #000, 0 0 25px #f0a500, 0 0 5px #f0a500;
+    text-align: center;
+    /* Center the title */
 }
 
 /* Character List Styles */
 .lod-ui .character-list {
     list-style: none;
     padding: 0;
-    flex: 1;
-    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .lod-ui .character-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    /* Increased margin for better spacing */
-    padding: 10px;
+    flex-direction: row;
+    /* Keep as row for two columns */
+    align-items: flex-start;
+    margin: 5px;
+    padding: 1px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 0 3px rgba(255, 255, 255, 0.2);
+    /* Subtle embossing */
     border: 2px solid #67391f;
-    background-color: #d3ad6f;
     transition: all 0.3s ease;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    /* Apply a 5px blur effect to the background */
+    background-color: rgba(255, 255, 255, .1);
+    /* Reduced opacity for the overlay */
+
 }
 
 .lod-ui .character-item:hover {
-    background-color: #e6c5a2;
+    background-color: #fef0e0;
     cursor: pointer;
 }
 
-.lod-ui .character-portrait {
-    margin-right: 15px;
-    border: 2px solid #67391f;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    width: 80px;
-    height: 80px;
-}
-
 .lod-ui .character-name {
-    font-size: 1.4em;
+    text-align: center;
+    font-size: 1.2em;
     color: #3c3c3c;
     font-family: "Cinzel", serif;
     font-weight: bold;
@@ -72,12 +74,49 @@
 .lod-ui .character-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
 }
 
+.portrait-container {
+    width: 100px;
+    /* Adjust width as needed */
+    height: 100px;
+    /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lod-ui .character-portrait {
+    margin-right: 10px;
+    flex-shrink: 0;
+    border: 2px solid #67391f;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    height: 80px;
+    width: 60px;
+    max-width: 180px;
+    max-height: 160px;
+    object-fit: cover;
+    border: 2px solid #f0a500;
+    /* Gold border */
+}
+
+.lod-ui .stat-container {
+    display: flex;
+    flex-direction: row;
+    /* Keep as row for two columns */
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+
+/* Stat Row */
 .lod-ui .stat-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    width: 100%;
     margin-bottom: 2px;
 }
 
@@ -85,23 +124,23 @@
     font-size: 0.9em;
     color: #3c3c3c;
     margin-right: 5px;
+    text-align: right;
+    font-weight: bold;
 }
 
 .lod-ui .stat-value {
     font-size: 0.9em;
     color: #3c3c3c;
+    margin-left: 5px;
 }
 
+/* HP and AC Styling */
 .lod-ui .hp {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #ff6347;
-    /* Red for HP */
-    margin-right: 5px;
+    color: #ff0000;
+    /* Vibrant red for HP */
 }
 
 .lod-ui .ac {
-    font-size: 0.9em;
     color: #3498db;
     /* Blue for AC */
 }
@@ -114,7 +153,7 @@
     }
 
     .lod-ui .character-item img {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
 
     .lod-ui .character-name {
