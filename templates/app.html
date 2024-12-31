@@ -1,16 +1,34 @@
-<form class="lod-ui">
-    <h2>Welcome to the Legend of Dragoon UI</h2>
-    <p>This module provides a custom user interface for your Foundry VTT games.</p>
-
-    <h3>Your Characters</h3>
+<!-- templates/app.html -->
+<div class="lod-ui">
+    <h2 class="lod-ui-title">Legend of Dragoon Party</h2>
     <ul id="character-list">
         {{#each characters}}
-        <li class="character-item" data-actor-id="{{this._id}}">
-            <img src="{{this.portrait}}" alt="{{this.name}}" class="character-portrait">
-            <span class="character-name">{{this.name}}</span>
+        <li class="character-item" data-actor-id="{{_id}}">
+            <!-- Character Portrait -->
+            <img src="{{portrait}}" alt="{{name}}'s Portrait" class="character-portrait" width="60" height="60">
+
+            <!-- Character Name -->
+            <span class="character-name">{{name}}</span>
+
+            <!-- Character Info Section -->
+            <div class="character-info">
+                <!-- Health Information -->
+                <span class="hp">HP: {{hp}}/{{maxHp}} ({{healthPercentage}}%)</span>
+
+                <!-- Armor Class -->
+                <div class="ac">AC: {{ac}}</div>
+
+                <!-- Ability Scores and Modifiers -->
+                <div class="abilities">
+                    <span class="str">STR: {{str}} (Mod: {{strMod}})</span>
+                    <span class="dex">DEX: {{dex}} (Mod: {{dexMod}})</span>
+                    <span class="con">CON: {{con}} (Mod: {{conMod}})</span>
+                    <span class="int">INT: {{int}} (Mod: {{intMod}})</span>
+                    <span class="wis">WIS: {{wis}} (Mod: {{wisMod}})</span>
+                    <span class="cha">CHA: {{cha}} (Mod: {{chaMod}})</span>
+                </div>
+            </div>
         </li>
         {{/each}}
     </ul>
-
-    <button class="button" id="open-settings-button">Open Settings</button>
-</form>
+</div>

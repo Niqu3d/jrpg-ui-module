@@ -1,34 +1,127 @@
-<div class="character-sheet">
-    <h2>{{ actor.name }}</h2>
-    <img src="{{ actor.img }}" alt="{{ actor.name }}" class="character-portrait">
+<form>
+    <div class="sheet-body">
+        <div class="sheet-tabs">
+            <nav>
+                <a class="item active" data-tab="description">Description</a>
+                <a class="item" data-tab="attributes">Attributes</a>
+                <a class="item" data-tab="skills">Skills</a>
+                <a class="item" data-tab="saves">Saves</a>
+                <a class="item" data-tab="inventory">Inventory</a>
+                <a class="item" data-tab="spells">Spells</a>
+            </nav>
+        </div>
 
-    <div class="stats">
-        <h3>Attributes</h3>
-        <ul>
-            <li>
-                <span>Strength:</span> {{ system.abilities.str.value }} ({{ system.abilities.str.mod }})
-            </li>
-            <li>
-                <span>Dexterity:</span> {{ system.abilities.dex.value }} ({{ system.abilities.dex.mod }})
-            </li>
-            <li>
-                <span>Constitution:</span> {{ system.abilities.con.value }} ({{ system.abilities.con.mod }})
-            </li>
-            <li>
-                <span>Intelligence:</span> {{ system.abilities.int.value }} ({{ system.abilities.int.mod }})
-            </li>
-            <li>
-                <span>Wisdom:</span> {{ system.abilities.wis.value }} ({{ system.abilities.wis.mod }})
-            </li>
-            <li>
-                <span>Charisma:</span> {{ system.abilities.cha.value }} ({{ system.abilities.cha.mod }})
-            </li>
-        </ul>
+        <div class="sheet-body-content">
+            <div class="tab description active" data-tab="description">
+                <h2 class="sheet-title">Description</h2>
+                <textarea name="system.description" type="text">{{system.description}}</textarea>
+            </div>
+
+            <div class="tab attributes" data-tab="attributes">
+                <h2 class="sheet-title">Attributes</h2>
+                <div class="attribute-row">
+                    <label for="str">Strength:</label>
+                    <input type="number" name="system.abilities.str.value" value="{{str}}" min="1" max="30" />
+                    <span class="modifier">{{strMod}}</span>
+                </div>
+                <div class="attribute-row">
+                    <label for="dex">Dexterity:</label>
+                    <input type="number" name="system.abilities.dex.value" value="{{dex}}" min="1" max="30" />
+                    <span class="modifier">{{dexMod}}</span>
+                </div>
+                <div class="attribute-row">
+                    <label for="con">Constitution:</label>
+                    <input type="number" name="system.abilities.con.value" value="{{con}}" min="1" max="30" />
+                    <span class="modifier">{{conMod}}</span>
+                </div>
+                <div class="attribute-row">
+                    <label for="int">Intelligence:</label>
+                    <input type="number" name="system.abilities.int.value" value="{{int}}" min="1" max="30" />
+                    <span class="modifier">{{intMod}}</span>
+                </div>
+                <div class="attribute-row">
+                    <label for="wis">Wisdom:</label>
+                    <input type="number" name="system.abilities.wis.value" value="{{wis}}" min="1" max="30" />
+                    <span class="modifier">{{wisMod}}</span>
+                </div>
+                <div class="attribute-row">
+                    <label for="cha">Charisma:</label>
+                    <input type="number" name="system.abilities.cha.value" value="{{cha}}" min="1" max="30" />
+                    <span class="modifier">{{chaMod}}</span>
+                </div>
+                <div class="attribute-row">
+                    <label for="ac">Armor Class (AC):</label>
+                    <span class="value">{{ac}}</span>
+                </div>
+                <div class="hp-row">
+                    <label for="hp">Hit Points:</label>
+                    <input type="number" name="system.attributes.hp.value" value="{{hp}}" min="0" max="{{maxHp}}" />
+                    <span class="max-hp">/ {{maxHp}}</span>
+                    <span class="percentage">({{healthPercentage}}%)</span>
+                </div>
+            </div>
+
+            <div class="tab skills" data-tab="skills">
+                <h2 class="sheet-title">Skills</h2>
+                <div class="skills-list">
+                    {{#each skills}}
+                    <div class="skill-row">
+                        <label for="{{this.name}}">{{this.name}}:</label>
+                        <input type="number" name="system.skills.{{this.name}}.value" value="{{this.value}}" min="0"
+                            max="10" />
+                        <span class="modifier">{{this.modifier}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="tab saves" data-tab="saves">
+                <h2 class="sheet-title">Saving Throws</h2>
+                <div class="saves-list">
+                    <div class="save-row">
+                        <label for="fortitude">Fortitude:</label>
+                        <span class="value">{{saves.fortitude.value}}</span>
+                        <span class="proficiency">({{saves.fortitude.proficiency}})</span>
+                    </div>
+                    <div class="save-row">
+                        <label for="reflex">Reflex:</label>
+                        <span class="value">{{saves.reflex.value}}</span>
+                        <span class="proficiency">({{saves.reflex.proficiency}})</span>
+                    </div>
+                    <div class="save-row">
+                        <label for="will">Will:</label>
+                        <span class="value">{{saves.will.value}}</span>
+                        <span class="proficiency">({{saves.will.proficiency}})</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab inventory" data-tab="inventory">
+                <h2 class="sheet-title">Inventory</h2>
+                <div class="inventory-list">
+                    {{#each inventory}}
+                    <div class="inventory-item">
+                        <span>{{this.name}}</span> - <span>{{this.quantity}}</span>
+                        <input type="number" name="system.inventory.{{this.name}}.quantity" value="{{this.quantity}}"
+                            min="0" />
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="tab spells" data-tab="spells">
+                <h2 class="sheet-title">Spells</h2>
+                <div class="spells-list">
+                    {{#each spells}}
+                    <div class="spell-row">
+                        <label for="{{this.name}}">{{this.name}}:</label>
+                        <input type="number" name="system.spells.{{this.name}}.level" value="{{this.level}}" min="0"
+                            max="9" />
+                        <span>Cast Count: {{this.castCount}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="health">
-        <h3>Health</h3>
-        <span>{{ actor.system.attributes.hp.value }} / {{ actor.system.attributes.hp.max }}</span>
-    </div>
-
-</div>
+</form>

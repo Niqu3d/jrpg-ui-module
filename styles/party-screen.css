@@ -1,0 +1,55 @@
+/* Party Screen Styles */
+.lod-ui-party-screen {
+    background-color: #f0e68c;
+    /* Off-White */
+    color: #332211;
+    /* Dark Brown */
+    border: 1px solid #888;
+    /* Lighter Gray Border, Thinner */
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+    background-image: url('data:image/svg+xml,<svg width="30" height="30" viewBox="0 0 30 30"><path d="M0 0h30v30H0z" fill="white" fill-opacity="0.1"/></svg>');
+    background-size: 10px 10px;
+}
+
+.lod-ui-party-screen .party-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+    background-color: #f8f0e3;
+    /* Slightly off-white for party members */
+    padding: 3px;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    /* Subtle inner shadow */
+    margin-left: 2px;
+    /* Slight left offset */
+    margin-top: 2px;
+    /* Slight top offset */
+    border: 1px solid #888;
+    /* Add a subtle outline */
+}
+
+.lod-ui-party-screen .party-member img {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    /* Lighter Gray Border */
+}
+
+.lod-ui-party-screen .party-member .name {
+    font-weight: bold;
+    color: #332211;
+    /* Dark Brown */
+}
+
+.lod-ui-party-screen .party-member .status {
+    color: #888;
+    /* Lighter Gray */
+    font-size: 0.7em;
+    margin-left: 3px;
+}

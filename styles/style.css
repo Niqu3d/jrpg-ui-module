@@ -1,93 +1,105 @@
 /* General Styles */
 .lod-ui {
-    background-color: #332211;
-    /* Darker Brown */
-    color: #F0E68C;
-    /* Off-White */
-    border: 2px solid #553300;
-    /* Darker Brown Border */
-    padding: 10px;
+    color: #332211;
+    border: 2px solid #532e13;
+    padding: 1.5em;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    background-color: #b27f50;
+    font-family: "Impact", "Arial Black", Arial, sans-serif;
+}
+
+/* Title Styles */
+.lod-ui-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #f0a500;
+    text-shadow: 1px 1px 2px #000, 0 0 25px #f0a500, 0 0 5px #f0a500;
 }
 
 /* Character List Styles */
+.lod-ui .character-list {
+    list-style: none;
+    padding: 0;
+}
+
 .lod-ui .character-item {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+    padding: 0.8em 1.5em;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: skewX(-3deg);
+    border: 1px solid #67391f;
+    background-color: #d3ad6f;
+    transition: all 0.3s ease;
+}
+
+.lod-ui .character-item:hover {
+    background-color: #e6c5a2;
+    cursor: pointer;
+    transform: skewX(-3deg) scale(1.05);
 }
 
 .lod-ui .character-portrait {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-/* Character Sheet Styles */
-.lod-ui .character-sheet {
-    background-color: #442200;
-    /* Slightly Lighter Brown */
-    padding: 15px;
-    border-radius: 5px;
+.lod-ui .character-name {
+    font-size: 1.2em;
+    color: #3c3c3c;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.lod-ui .character-sheet h2 {
-    color: var(--lodr-ui-text-primary);
+.lod-ui .character-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lod-ui .hp {
+    font-size: 1em;
+    font-weight: bold;
+    color: #ff6347;
+    /* Darker Red for HP text */
     margin-bottom: 10px;
+    /* Add space below HP text */
 }
 
-.lod-ui .character-sheet .stats {
-    margin-bottom: 15px;
+.lod-ui .ac {
+    font-size: 0.9em;
+    color: #3498db;
+    /* Blue color for AC */
 }
 
-.lod-ui .character-sheet .stats li {
-    list-style: none;
-    margin-bottom: 5px;
+.lod-ui .abilities span {
+    font-size: 0.9em;
+    color: #3c3c3c;
 }
 
-.lod-ui .character-sheet .health {
-    margin-bottom: 10px;
-}
+/* Responsiveness */
+@media (max-width: 600px) {
+    .lod-ui .character-item {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.lod-ui .character-sheet .health span {
-    color: var(--lodr-ui-text-secondary);
-}
+    .lod-ui .character-item img {
+        margin-bottom: 10px;
+    }
 
-/* Example: Button Styles */
-.lod-ui button {
-    background-color: #C86400;
-    /* Orange-Brown */
-    border: none;
-    color: var(--lodr-ui-text-primary);
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+    .lod-ui .character-name {
+        font-size: 1.4em;
+    }
 
-.lod-ui button:hover {
-    background-color: darken(#C86400, 10%);
-}
-
-.lod-ui button:active {
-    background-color: darken(#C86400, 15%);
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-/* Health Bar (if applicable) */
-.lod-ui .health-bar {
-    background-color: #111111;
-    /* Dark Gray */
-    border-radius: 5px;
-    width: 150px;
-    height: 15px;
-}
-
-.lod-ui .health-fill {
-    background-color: #00ff00;
-    /* Green */
+    .lod-ui .character-info {
+        text-align: center;
+    }
 }
