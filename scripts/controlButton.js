@@ -32,6 +32,21 @@ export function createControlButton() {
     controlButton.setAttribute('title', 'Open JRPG UI');
     controlButton.setAttribute('aria-label', 'Open JRPG UI');
 
+    // Minimize button styling
+    controlButton.style.padding = '0'; // Remove padding
+    controlButton.style.border = 'none';
+    controlButton.style.backgroundColor = 'transparent';
+    controlButton.style.outline = 'none'; // Remove default button focus outline
+
+    // **Experimental: Attempt to position the button**
+    // **Warning: This might not work consistently and may break with future Foundry VTT updates**
+    controlButton.style.position = 'absolute';
+    controlButton.style.top = '600px'; // how far away from the top of the screen
+    controlButton.style.left = '-1380px'; // how far away from the right of the screen
+    controlButton.style.zIndex = '10px';
+    controlButton.style.width = '24px'; // how wide the button is
+    controlButton.style.height = '24px'; // how tall the button is
+
     // Add a click event listener to the button
     controlButton.addEventListener('click', () => {
         // Create a new instance of the JRPGUI class and render it

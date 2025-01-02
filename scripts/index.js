@@ -1,6 +1,8 @@
 /**
  * This file contains the main logic for your JRPG UI module.
  */
+import { createControlButton } from './controlButton.js';
+
 
 // JRPGUI Class - Represents the custom UI application for your module
 class JRPGUI extends FormApplication {
