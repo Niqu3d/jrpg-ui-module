@@ -1,5 +1,9 @@
 /* General Styles */
 .lod-ui {
+    /*
+    Styles for the main container of the UI.
+    Applies general styles like padding, border, background, and font.
+  */
     padding: 15px;
     border: 2px solid #532e13;
     /* Dark brown border */
@@ -18,29 +22,37 @@
 
 /* Title Styles */
 .lod-ui-title {
+    /* Styles for the main title of the UI */
     font-size: 2.0em;
     font-weight: bold;
     color: #f0a500;
     /* Gold */
     text-shadow: 1px 1px 2px #000, 0 0 25px #f0a500, 0 0 5px #f0a500;
     text-align: center;
-    /* Center the title */
+    /* Center the title within the container */
 }
 
 /* Character List Styles */
 .lod-ui .character-list {
+    /* Styles for the list containing character items */
     list-style: none;
     padding: 0;
     display: flex;
+    /* Arrange character items in a row */
     flex-wrap: wrap;
+    /* Allow items to wrap to the next line if needed */
     justify-content: space-between;
+    /* Distribute space evenly between items */
 }
 
 .lod-ui .character-item {
+    /* Styles for individual character items */
     display: flex;
+    /* Arrange content within the item horizontally */
     flex-direction: row;
-    /* Keep as row for two columns */
+    /* Ensure horizontal layout */
     align-items: flex-start;
+    /* Align items vertically at the top */
     margin: 5px;
     padding: 1px;
     border-radius: 8px;
@@ -48,20 +60,24 @@
     /* Subtle embossing */
     border: 2px solid #67391f;
     transition: all 0.3s ease;
+    /* Smooth transitions for hover effects */
     font-weight: bold;
     backdrop-filter: blur(5px);
-    /* Apply a 5px blur effect to the background */
+    /* Apply blur effect to background */
     background-color: rgba(255, 255, 255, .1);
-    /* Reduced opacity for the overlay */
-
+    /* Light background overlay */
 }
 
 .lod-ui .character-item:hover {
+    /* Styles for character items when hovered */
     background-color: #fef0e0;
+    /* Change background color on hover */
     cursor: pointer;
+    /* Change cursor to indicate interactivity */
 }
 
 .lod-ui .character-name {
+    /* Styles for character names */
     text-align: center;
     font-size: 1.2em;
     color: #3c3c3c;
@@ -72,25 +88,33 @@
 }
 
 .lod-ui .character-info {
+    /* Styles for the character information container */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* Align items vertically at the top */
     margin-left: 10px;
+    /* Add spacing between portrait and info */
 }
 
 .portrait-container {
+    /* Styles for the portrait container */
     width: 100px;
     /* Adjust width as needed */
     height: 100px;
     /* Adjust height as needed */
     display: flex;
     justify-content: center;
+    /* Center the portrait within the container */
     align-items: center;
+    /* Center the portrait vertically */
 }
 
 .lod-ui .character-portrait {
+    /* Styles for the character portrait image */
     margin-right: 10px;
     flex-shrink: 0;
+    /* Prevent portrait from shrinking too much */
     border: 2px solid #67391f;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -99,28 +123,32 @@
     max-width: 180px;
     max-height: 160px;
     object-fit: cover;
+    /* Scale image to fit container while maintaining aspect ratio */
     border: 2px solid #f0a500;
     /* Gold border */
 }
 
 .lod-ui .stat-container {
+    /* Styles for the container holding character stats */
     display: flex;
     flex-direction: row;
-    /* Keep as row for two columns */
+    /* Arrange stats horizontally */
     width: 100%;
     margin-bottom: 2px;
 }
 
-
-/* Stat Row */
+/* Stat Row Styles */
 .lod-ui .stat-row {
+    /* Styles for individual stat rows */
     display: flex;
     justify-content: flex-end;
+    /* Align stats to the right within each row */
     width: 100%;
     margin-bottom: 2px;
 }
 
 .lod-ui .stat-label {
+    /* Styles for stat labels */
     font-size: 0.9em;
     color: #3c3c3c;
     margin-right: 5px;
@@ -129,6 +157,7 @@
 }
 
 .lod-ui .stat-value {
+    /* Styles for stat values */
     font-size: 0.9em;
     color: #3c3c3c;
     margin-left: 5px;
@@ -136,20 +165,25 @@
 
 /* HP and AC Styling */
 .lod-ui .hp {
+    /* Style for HP values */
     color: #ff0000;
     /* Vibrant red for HP */
 }
 
 .lod-ui .ac {
+    /* Style for AC values */
     color: #3498db;
     /* Blue for AC */
 }
 
 /* Responsiveness */
 @media (max-width: 600px) {
+
+    /* Adjust styles for smaller screen sizes */
     .lod-ui .character-item {
         flex-direction: column;
         align-items: center;
+        /* Center content vertically on smaller screens */
     }
 
     .lod-ui .character-item img {
@@ -163,5 +197,6 @@
 
     .lod-ui .character-info {
         text-align: center;
+        /* Center character information on smaller screens */
     }
 }

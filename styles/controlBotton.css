@@ -1,0 +1,10 @@
+/*Control Botton */
+.control-button {
+    display: block;
+    margin: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-image: url('/modules/jrpg-ui-module/images/icon.png');
+    cursor: pointer;
+}
