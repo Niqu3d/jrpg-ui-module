@@ -1,22 +1,13 @@
-// index.js
-
-// Import necessary styles and functions
-import './styles/module.css'; // Import module styles
-import { createControlButton } from './module.js'; // Import control button creation function
-
-// Import functions for registering settings and hooks (likely from separate files)
-import { registerSettings } from './module/settings.js';
-import { registerHooks } from './module/hooks.js';
-
-// Hook to run code once when the game is ready
-Hooks.once('ready', () => {
-    // Render the JRPG UI application
-    new JRPGUI().render(true);
-});
+/**
+ * This file contains the main logic for your JRPG UI module.
+ */
 
 // JRPGUI Class - Represents the custom UI application for your module
 class JRPGUI extends FormApplication {
-    // Define default application options
+    /**
+     * Define default application options.
+     * @returns {Object} An object containing the default application options.
+     */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             id: "jrpg-ui-module", // Unique identifier for the application
@@ -29,7 +20,10 @@ class JRPGUI extends FormApplication {
         });
     }
 
-    // Function to retrieve data for the UI template
+    /**
+     * Retrieves data for the UI template.
+     * @returns {Object} An object containing the data for the template.
+     */
     getData() {
         // Get all actors in the game
         const actors = game.actors.contents;
@@ -49,7 +43,10 @@ class JRPGUI extends FormApplication {
         };
     }
 
-    // Function to add event listeners to the UI elements
+    /**
+     * Adds event listeners to the UI elements.
+     * @param {HTMLElement} html The HTML element representing the application.
+     */
     activateListeners(html) {
         super.activateListeners(html); // Call parent class method for base functionality
 
@@ -72,6 +69,14 @@ class JRPGUI extends FormApplication {
     }
 }
 
+// Export the JRPGUI class
+export { JRPGUI };
+
+// Register the control button within the 'ready' hook
+Hooks.once('ready', () => {
+    createControlButton();
+});
+
 // Ensure custom sheet is used when opening an actor sheet
 Hooks.on('getActorSheet', (actor) => {
     if (actor instanceof game.actors.BaseActor) {
@@ -85,11 +90,6 @@ Hooks.on('getActorSheet', (actor) => {
 
 // Hooks to run code once on initialization and ready
 Hooks.once('init', async function() {
-    registerSettings();
-    registerHooks();
-});
-
-Hooks.once('ready', async function() {
-    // ... your module's additional ready logic ...
-    createControlButton(); // Call function to create the control button
+    // registerSettings(); // Remove this line if you don't have settings
+    // registerHooks(); // Remove this line if you don't have custom hooks
 });
