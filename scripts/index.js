@@ -74,21 +74,31 @@ class JRPGUI extends FormApplication {
 // Export the JRPGUI class
 export { JRPGUI };
 
-Hooks.once('ready', async () => {
+Hooks.once('ready', () => {
     // Create the control button
     const myButton = createControlButton();
 
-    // Find the container element
-    const buttonContainer = document.getElementById('jrpg-ui-button-container');
+    // Find or create the button container
+    let buttonContainer = document.getElementById('jrpg-ui-button-container');
+
+    if (!buttonContainer) {
+        buttonContainer = document.createElement('div');
+        buttonContainer.id = 'jrpg-ui-button-container';
+        buttonContainer.classList.add('sidebar-top-buttons');
+
+        // Find the sidebar element
+        const sidebar = document.getElementById('sidebar');
+
+        if (sidebar) {
+            sidebar.appendChild(buttonContainer);
+        } else {
+            console.warn("Sidebar element not found. Button container could not be appended.");
+        }
+    }
 
     // Append the button to the container
-    if (buttonContainer) {
-        buttonContainer.appendChild(myButton);
-    } else {
-        console.warn("Button container not found. Button could not be appended.");
-    }
+    buttonContainer.appendChild(myButton);
 });
-
 // Ensure custom sheet is used when opening an actor sheet
 Hooks.on('getActorSheet', (actor) => {
     if (actor instanceof game.actors.BaseActor) {

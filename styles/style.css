@@ -218,7 +218,7 @@
     /* Position the container absolutely */
     top: 10px;
     /* Set top offset */
-    left: 10px;
+    left: -25px;
     /* Set left offset */
     z-index: 1000;
     /* Ensure the container appears on top */
