@@ -1,7 +1,7 @@
 /* is what allows us to call upon the custom font we are using inside our module */
 @font-face {
     font-family: "Amarante";
-    src: url("/modules/jrpg-ui-module/fonts/Amarante-Regular.woff2") format("woff2");
+    src: url('/modules/jrpg-ui-module/fonts/Amarante-Regular.ttf') format("truetype");
 }
 
 /* General Styles */
@@ -225,7 +225,7 @@
     /* Position the container absolutely */
     top: 10px;
     /* Set top offset */
-    left: 10px;
+    left: -22px;
     /* Set left offset */
     z-index: 1000;
     /* Ensure the container appears on top */

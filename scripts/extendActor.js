@@ -1,5 +1,7 @@
 export default class extendActor {
     prepareData() {
+        super.prepareData(); // Call the parent class's prepareData method
+
         if (!this.actor.system.derived) {
             this.actor.system.derived = {};
         }

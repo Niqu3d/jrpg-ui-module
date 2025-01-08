@@ -32,23 +32,41 @@ class JRPGUI extends FormApplication {
 
         // Map each actor to an object containing its information
         return {
-            characters: actors.map(actor => ({
-                name: actor.name, // Actor name
-                portrait: actor.img, // Path to the actor's portrait image
-                hp: actor.system?.attributes?.hp?.value || 0, // Current HP value (or 0 if not found)
-                maxHp: actor.system?.attributes?.hp?.max || 0, // Maximum HP value (or 0 if not found)
-                _id: actor._id, // Actor's unique ID
-                ac: actor.system?.derived?.ac || 0, // Armor Class (or 0 if not found)
-                class: actor.data.data.class.value || "Unknown",  // class
-                ancestry: actor.data.data.details.ancestry.value || "Unknown",  //race
-                heritage: actor.data.data.details.heritage.value || "Unknown",  // heritage
-                // ... (similarly extract other desired actor data)
-                healthPercentage: (actor.system?.attributes?.hp?.value || 0) / (actor.system.attributes?.hp?.max || 0) * 100, // Calculate health percentage (or 0 if HP data not found)
-            })),
+            characters: actors.map(actor => {
+                try {
+                    return {
+                        name: actor.name, // Actor name
+                        portrait: actor.img, // Path to the actor's portrait image
+                        hp: actor.system?.attributes?.hp?.value || 0, // Current HP value (or 0 if not found)
+                        maxHp: actor.system?.attributes?.hp?.max || 0, // Maximum HP value (or 0 if not found)
+                        _id: actor._id, // Actor's unique ID
+                        ac: actor.system?.ac || 0, // Access AC directly if it's calculated by extendActor.js
+                        class: actor.system?.details?.class?.name || "Unknown", // Class for PF2e
+                        type: actor.type || "Unknown",
+                        ancestry: actor.system?.details?.ancestry?.value || "Unknown",
+                        heritage: actor.system?.details?.heritage?.value || "Unknown",
+                        healthPercentage: (actor.system?.attributes?.hp?.value || 0) / (actor.system?.attributes?.hp?.max || 0) * 100, // Calculate health percentage (or 0 if HP data not found)
+                    };
+                } catch (error) {
+                    console.error(`Error processing actor ${actor.name}:`, error);
+                    // Return default values for error handling
+                    return {
+                        name: actor.name,
+                        portrait: actor.img,
+                        _id: actor._id,
+                        class: "Error",
+                        type: "Error",
+                        ancestry: "Error",
+                        heritage: "Error",
+                        hp: 0,
+                        maxHp: 0,
+                        ac: 0,
+                        healthPercentage: 0,
+                    };
+                }
+            }),
         };
     }
-
-
 
     /**
      * Adds event listeners to the UI elements.
