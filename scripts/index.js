@@ -13,7 +13,7 @@ class JRPGUI extends FormApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             id: "jrpg-ui-module", // Unique identifier for the application
-            title: "Legend of Dragoon UI", // Title displayed in the application window
+            title: "Aethon Skies", // Title displayed in the application window
             template: "modules/jrpg-ui-module/templates/app.html", // Path to the HTML template defining the UI
             width: 600, // Width of the application window
             height: "auto", // Height of the application window (automatic based on content)
