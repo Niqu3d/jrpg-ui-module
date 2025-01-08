@@ -7,8 +7,9 @@
 
 <body>
     <div id="jrpg-ui-button-container" class="sidebar-top-buttons"></div>
+
     <div class="lod-ui">
-        <h2 class="lod-ui-title">Aethon Skies</h2>
+        <h2>Legend of Dragoon UI</h2>
         <ul id="character-list">
             {{#each characters}}
             <li class="character-item" data-actor-id="{{_id}}">
@@ -18,18 +19,9 @@
                 <div class="character-info">
                     <span class="character-name">{{name}}</span>
                     <div class="stat-container">
-                        <div class="character-stats">
-                            <span class="hp">HP: {{hp}}/{{maxHp}} ({{healthPercentage}}%)</span>
-                            <span class="ac">AC: {{ac}}</span>
-                            <div class="abilities">
-                                <span class="str">STR: {{str}} (Mod: {{strMod}})</span>
-                                <span class="dex">DEX: {{dex}} (Mod: {{dexMod}})</span>
-                                <span class="con">CON: {{con}} (Mod: {{conMod}})</span>
-                                <span class="int">INT: {{int}} (Mod: {{intMod}})</span>
-                                <span class="wis">WIS: {{wis}} (Mod: {{wisMod}})</span>
-                                <span class="cha">CHA: {{cha}} (Mod: {{chaMod}})</span>
-                            </div>
-                        </div>
+                        <span class="ancestry">{{ancestry}}</span>
+                        <span class="class">{{class}}</span>
+                        <span class="heritage">{{heritage}}</span>
                     </div>
                 </div>
             </li>

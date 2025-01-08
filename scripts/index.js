@@ -39,11 +39,16 @@ class JRPGUI extends FormApplication {
                 maxHp: actor.system?.attributes?.hp?.max || 0, // Maximum HP value (or 0 if not found)
                 _id: actor._id, // Actor's unique ID
                 ac: actor.system?.derived?.ac || 0, // Armor Class (or 0 if not found)
+                class: actor.data.data.class.value || "Unknown",  // class
+                ancestry: actor.data.data.details.ancestry.value || "Unknown",  //race
+                heritage: actor.data.data.details.heritage.value || "Unknown",  // heritage
                 // ... (similarly extract other desired actor data)
                 healthPercentage: (actor.system?.attributes?.hp?.value || 0) / (actor.system.attributes?.hp?.max || 0) * 100, // Calculate health percentage (or 0 if HP data not found)
             })),
         };
     }
+
+
 
     /**
      * Adds event listeners to the UI elements.

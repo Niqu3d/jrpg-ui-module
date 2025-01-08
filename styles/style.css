@@ -1,9 +1,15 @@
+/* is what allows us to call upon the custom font we are using inside our module */
+@font-face {
+    font-family: "Amarante";
+    src: url("/modules/jrpg-ui-module/fonts/Amarante-Regular.woff2") format("woff2");
+}
+
 /* General Styles */
 .lod-ui {
     /*
-    Styles for the main container of the UI.
-    Applies general styles like padding, border, background, and font.
-  */
+   * Styles for the main container of the UI.
+   * Applies general styles like padding, border, background, and font.
+   */
     padding: 15px;
     border: 2px solid #532e13;
     /* Dark brown border */
@@ -13,7 +19,7 @@
     background-image: url('/modules/jrpg-ui-module/images/background.png');
     background-size: cover;
     background-position: center;
-    font-family: "Impact", "Arial Black", sans-serif;
+    font-family: "Amarante", "Arial Black", sans-serif;
     display: flex;
     flex-direction: column;
     height: fit-content;
@@ -81,7 +87,8 @@
     text-align: center;
     font-size: 1.2em;
     color: #3c3c3c;
-    font-family: "Cinzel", serif;
+    font-family: "Amarante", "Arial Black", sans-serif;
+    /* Use Amarante font for character names */
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 5px;
@@ -131,8 +138,8 @@
 .lod-ui .stat-container {
     /* Styles for the container holding character stats */
     display: flex;
-    flex-direction: row;
-    /* Arrange stats horizontally */
+    flex-direction: column;
+    /* Arrange stats vertically */
     width: 100%;
     margin-bottom: 2px;
 }
@@ -218,7 +225,7 @@
     /* Position the container absolutely */
     top: 10px;
     /* Set top offset */
-    left: -25px;
+    left: 10px;
     /* Set left offset */
     z-index: 1000;
     /* Ensure the container appears on top */
@@ -236,15 +243,5 @@
 
     .lod-ui .character-item img {
         margin-bottom: 10px;
-    }
-
-    .lod-ui .character-name {
-        font-size: 1.4em;
-        margin-bottom: 5px;
-    }
-
-    .lod-ui .character-info {
-        text-align: center;
-        /* Center character information on smaller screens */
     }
 }
