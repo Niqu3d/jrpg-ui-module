@@ -1,15 +1,13 @@
 /**
  * This script defines the function to create the control button for the JRPG UI module.
  */
-
 // Import the JRPGUI class from the main module file
 import { JRPGUI } from './index.js';
 
 /**
  * Creates the control button for the JRPG UI module.
  *
- * This function creates a new button element, adds necessary classes and attributes,
- * and appends it to the Foundry VTT sidebar.
+ * This function creates a new button element and returns it.
  */
 export function createControlButton() {
     // Create a new button element
@@ -38,28 +36,14 @@ export function createControlButton() {
     controlButton.style.backgroundColor = 'transparent';
     controlButton.style.outline = 'none'; // Remove default button focus outline
 
-    // **Experimental: Attempt to position the button**
-    // **Warning: This might not work consistently and may break with future Foundry VTT updates**
-    controlButton.style.position = 'absolute';
-    controlButton.style.top = '600px'; // how far away from the top of the screen
-    controlButton.style.left = '-1380px'; // how far away from the right of the screen
-    controlButton.style.zIndex = '10px';
-    controlButton.style.width = '24px'; // how wide the button is
-    controlButton.style.height = '24px'; // how tall the button is
-
     // Add a click event listener to the button
     controlButton.addEventListener('click', () => {
         // Create a new instance of the JRPGUI class and render it
         new JRPGUI().render(true);
     });
 
-    // Get the sidebar element from the DOM
-    const sidebar = document.getElementById('sidebar');
-
-    // Append the button to the sidebar if the sidebar element exists
-    if (sidebar) {
-        sidebar.appendChild(controlButton);
-    } else {
-        console.warn("Sidebar element not found. Control button could not be appended.");
-    }
+    // Add the CSS class for styling
+    controlButton.classList.add('control-button');
+    // Return the created button element
+    return controlButton;
 }

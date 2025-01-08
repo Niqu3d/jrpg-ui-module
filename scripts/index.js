@@ -1,8 +1,8 @@
 /**
- * This file contains the main logic for your JRPG UI module.
+ * This script defines the main logic for your JRPG UI module.
  */
-import { createControlButton } from './controlButton.js';
 
+import { createControlButton } from './controlButton.js';
 
 // JRPGUI Class - Represents the custom UI application for your module
 class JRPGUI extends FormApplication {
@@ -74,9 +74,19 @@ class JRPGUI extends FormApplication {
 // Export the JRPGUI class
 export { JRPGUI };
 
-// Register the control button within the 'ready' hook
-Hooks.once('ready', () => {
-    createControlButton();
+Hooks.once('ready', async () => {
+    // Create the control button
+    const myButton = createControlButton();
+
+    // Find the container element
+    const buttonContainer = document.getElementById('jrpg-ui-button-container');
+
+    // Append the button to the container
+    if (buttonContainer) {
+        buttonContainer.appendChild(myButton);
+    } else {
+        console.warn("Button container not found. Button could not be appended.");
+    }
 });
 
 // Ensure custom sheet is used when opening an actor sheet

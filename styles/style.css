@@ -176,6 +176,53 @@
     /* Blue for AC */
 }
 
+/*
+ * Styles for the control button element.
+ */
+.control-button {
+    display: flex;
+    /* Use flexbox for better alignment */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+    width: 30px;
+    /* Set button width */
+    height: 30px;
+    /* Set button height */
+    border-radius: 3px;
+    /* Add rounded corners */
+    background-color: #333;
+    /* Set background color */
+    color: #fff;
+    /* Set text color */
+    margin-right: 5px;
+    /* Add spacing between buttons */
+}
+
+/*
+ * Styles for the icon within the button.
+ */
+.control-button img {
+    width: 20px;
+    /* Set icon width */
+    height: 20px;
+    /* Set icon height */
+}
+
+/*
+ * Styles for the container that holds the button.
+ */
+.sidebar-top-buttons {
+    position: absolute;
+    /* Position the container absolutely */
+    top: 10px;
+    /* Set top offset */
+    left: 10px;
+    /* Set left offset */
+    z-index: 1000;
+    /* Ensure the container appears on top */
+}
 
 /* Responsiveness */
 @media (max-width: 600px) {

@@ -3,7 +3,7 @@
     "title": "JRPG UI Module by Niqu3d",
     "description": "A custom JRPG-style UI for FoundryVTT (PF2e) with character sheets inspired by Legend of Dragoon.",
     "url": "https://github.com/Niqu3d/jrpg-ui-module",
-    "version": "0.1.5",
+    "version": "0.1.6.1",
     "authors": [
         {
             "name": "Niqu3d",
