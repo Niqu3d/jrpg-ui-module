@@ -85,13 +85,16 @@
 .lod-ui .character-name {
     /* Styles for character names */
     text-align: center;
-    font-size: 1.2em;
+    font-size: 2em;
     color: #3c3c3c;
     font-family: "Amarante", "Arial Black", sans-serif;
     /* Use Amarante font for character names */
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .lod-ui .character-info {
@@ -141,7 +144,10 @@
     flex-direction: column;
     /* Arrange stats vertically */
     width: 100%;
-    margin-bottom: 2px;
+    margin: inherit;
+    align-items: flex-end;
+    font-size: large;
+
 }
 
 /* Stat Row Styles */
@@ -174,12 +180,14 @@
 .lod-ui .hp {
     /* Style for HP values */
     color: #ff0000;
+    font-size: large;
     /* Vibrant red for HP */
 }
 
 .lod-ui .ac {
     /* Style for AC values */
     color: #3498db;
+    font-size: x-large;
     /* Blue for AC */
 }
 
