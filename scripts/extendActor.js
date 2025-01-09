@@ -47,5 +47,9 @@ export default class extendActor {
             (this.actor.system.abilities.dex.mod || 0) + (this.actor.system.saves.reflex.proficiency || 0);
         this.actor.system.saves.will.value =
             (this.actor.system.abilities.wis.mod || 0) + (this.actor.system.saves.will.proficiency || 0);
+
+        // Access and store ancestry and heritage data
+        this.actor.system.derived.ancestry = this.actor.system.details.ancestry?.value || "Unknown";
+        this.actor.system.derived.heritage = this.actor.system.details.heritage?.value || "Unknown";
     }
 }

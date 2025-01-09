@@ -43,8 +43,8 @@ class JRPGUI extends FormApplication {
                         ac: actor.system?.ac || 0, // Access AC directly if it's calculated by extendActor.js
                         class: actor.system?.details?.class?.name || "Unknown", // Class for PF2e
                         type: actor.type || "Unknown",
-                        ancestry: actor.system?.details?.ancestry?.value || "Unknown",
-                        heritage: actor.system?.details?.heritage?.value || "Unknown",
+                        ancestry: actor.system?.details?.ancestry?.name || "Unknown", // ancestry or race for PF2e
+                        heritage: actor.system?.details?.heritage?.name || "Unknown", // heritage for PF2e
                         healthPercentage: (actor.system?.attributes?.hp?.value || 0) / (actor.system?.attributes?.hp?.max || 0) * 100, // Calculate health percentage (or 0 if HP data not found)
                     };
                 } catch (error) {
