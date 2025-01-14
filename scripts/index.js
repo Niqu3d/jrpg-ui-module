@@ -27,13 +27,24 @@ class JRPGUI extends FormApplication {
      * @returns {Object} An object containing the data for the template.
      */
     getData() {
-        // Get all actors in the game
         const actors = game.actors.contents;
 
-        // Map each actor to an object containing its information
         return {
-            characters: actors.map(actor => {
+            characters: actors.filter(actor => {
+                if (actor.type === "character") {
+                    console.log("Actor included:", actor.name, "Actor Type:", actor.type);
+                    return true;
+                } else {
+                    console.log("Actor excluded:", actor.name, "Reason:", actor.type);
+                    return false;
+                }
+            }).map(actor => {
                 try {
+                    console.log("Actor ID:", actor._id);
+                    console.log("Actor HP Max:", actor.system.attributes.hp.max);
+                    console.log("Actor Con Mod:", actor.system.abilities.con.mod);
+                    console.log("Actor Level:", actor.system.details?.level);
+
                     return {
                         name: actor.name, // Actor name
                         portrait: actor.img, // Path to the actor's portrait image
@@ -122,6 +133,7 @@ Hooks.once('ready', () => {
     // Append the button to the container
     buttonContainer.appendChild(myButton);
 });
+
 // Ensure custom sheet is used when opening an actor sheet
 Hooks.on('getActorSheet', (actor) => {
     if (actor instanceof game.actors.BaseActor) {
